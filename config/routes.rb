@@ -1,15 +1,40 @@
 Rails.application.routes.draw do
-  # EXAMPLE HTML ROUTE
-  # get "/photos" => "photos#index"
 
-  # EXAMPLE JSON ROUTE WITH API NAMESPACE
   namespace :api do
-    get "/actor" => "actor#id"
-    get "/movie" => "movie#movie"
-    get "/movies" => "movie#movies"
-    get "/query_actor" => "actor#query"
-    get "/actor_url/:wildcard" => "actor#url"
-    post "/body_actor" => "actor#body"
+
+    #RESTful actions for actor controller
+    get "/actors" => "actor#index"
+    post "/actor" => "actor#create"
+    get "/actor/:id" => "actor#show"
+    patch "/actor/:id" => "actor#update"
+    delete "actor/:id" => "actor#destroy"
+
+    #RESTful actions for movie controller
+    get "/movies" => "movie#index"
+    post "/movie" => "movie#create"
+    get "/movie/:id" => "movie#show"
+    patch "/movie/:id" => "movie#update"
+    delete "movie/:id" => "movie#destroy"
 
   end
+
 end
+
+# Rails.application.routes.draw do
+
+#   # GET "/books" - Gets all the books we have
+#   get "/books" => "books#index"
+
+#   # POST "/books" - Creates a new book, add it to our database
+#   post "/books" => "books#create"
+
+#   # GET "/books/3" - Just get one specific book (that already exists)
+#   get "/books/:id" => "books#show"
+
+#   # PATCH "/books/3" - Updates a specific book
+#   patch "/books/:id" => "books#update"
+
+#   # DELETE "/books/3" - Deletes a specific book
+#   delete "/books/:id" => "books#destroy"
+
+# end
