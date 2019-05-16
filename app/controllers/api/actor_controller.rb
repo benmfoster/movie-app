@@ -12,9 +12,11 @@ class Api::ActorController < ApplicationController
 
     def create
     	@actor = Actor.new(
-    		first_name: params[:first_name]
-    		last_name: params[:last_name]
-    		known_for: params [:known_for]
+    		first_name: params[:first_name],
+    		last_name: params[:last_name],
+			known_for: params[:known_for],
+			gender: params[:gender],
+			age: params[:age]
     		)
     	@actor.save
     	render 'create.json.jbuilder'
@@ -25,7 +27,9 @@ class Api::ActorController < ApplicationController
 
     	@actor.first_name = params[:first_name] || @actor.first_name
     	@actor.last_name = params[:last_name] || @actor.last_name
-    	@actor.known_for = params[:known_for] || @actor.known_for
+		@actor.known_for = params[:known_for] || @actor.known_for
+		@actor.gender = params[:gender] || @actor.gender
+		@actor.age = params[:age] || @actor.age
 
     	@actor.save
     	render 'show.json.jbuilder'
@@ -34,7 +38,7 @@ class Api::ActorController < ApplicationController
     def destroy
     	@actor = Actor.find(params[:id])
     	@actor.destroy
-    	render json {message: "Actor successfully destroyed!"}
+    	render json: {message: "Actor successfully destroyed!"}
     end
     
 end
