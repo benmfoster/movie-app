@@ -17,9 +17,15 @@ class Api::ActorController < ApplicationController
 			known_for: params[:known_for],
 			gender: params[:gender],
 			age: params[:age]
-    		)
-    	@actor.save
-    	render 'create.json.jbuilder'
+			)
+			
+			if @actor.save
+				# happy path
+				render 'create.json.jbuilder'
+			else
+				# sad path
+				render json: {errors: @actor.errors.full_messages}, status: :unprocessable_entity
+			end
     end
 
     def update

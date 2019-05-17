@@ -17,8 +17,13 @@ class Api::MovieController < ApplicationController
                 plot: params[:plot],
                 director: params[:director]
                 )
-            @movie.save
-            render 'create.json.jbuilder'
+                if @movie.save
+                    # happy path
+                    render 'create.json.jbuilder'
+                else
+                    # sad path
+                    render json: {errors: @movie.errors.full_messages}, status: :unprocessable_entity
+                end
         end
     
         def update
