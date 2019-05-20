@@ -1,7 +1,7 @@
 class Api::MovieController < ApplicationController
 
         def index
-            @movies = Movie.all
+            @movies = Movie.all.select {:english}
             render "index.json.jbuilder"
         end
     
