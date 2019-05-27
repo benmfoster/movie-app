@@ -1,5 +1,7 @@
 class Api::ActorController < ApplicationController
 
+	before_action :authenticate_admin, except: [:index, :show]
+
     def index
 		@actors = Actor.all.sort_by(&:age)
     	render "index.json.jbuilder"

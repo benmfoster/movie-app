@@ -1,5 +1,7 @@
 class Api::MovieController < ApplicationController
 
+    before_action :authenticate_admin, except: [:index, :show]
+    
         def index
             @movies = Movie.all.select {:english}
             render "index.json.jbuilder"
