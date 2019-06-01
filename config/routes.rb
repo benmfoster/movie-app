@@ -11,14 +11,16 @@ Rails.application.routes.draw do
 
     #RESTful actions for movie controller
     get "/movies" => "movie#index"
-    post "/movie" => "movie#create"
-    get "/movie/:id" => "movie#show"
-    patch "/movie/:id" => "movie#update"
-    delete "movie/:id" => "movie#destroy"
+    post "/movies" => "movie#create"
+    get "/movies/:id" => "movie#show"
+    patch "/movies/:id" => "movie#update"
+    delete "movies/:id" => "movie#destroy"
 
     post "/users" => "users#create"
 
     post "/sessions" => "sessions#create"
+
+    post "/movie_genres" => "movie_genres#create"
 
   end
 

@@ -1,0 +1,29 @@
+<h1><%= @movie.title %></h1>
+
+	<h3>Year: <%= @movie.year %></h3>
+	<h3>Plot: <%= @movie.plot %></h3>
+	<h3>Director: <%= @movie.director %></h3>
+	<h4>Genres: <%= @movie.genres[0]["name"] %></h4>
+
+<h1>New Movie</h1>
+
+<form action = "/movies" method = "post">
+	<div>
+		Title: <input type = "text" name = "title" />
+	</div>
+	<div>
+		Year: <input type = "text" name = "year" />
+	</div>
+	<div>
+		Plot: <input type = "text" name = "plot" />
+	</div>
+	<div>
+		Director: <input type = "text" name = "director" />
+	</div>
+	<div>
+		Genres: <input type = "text" name = "genres" />
+	</div>
+	<input type = "submit" value = "Submit Movie" />
+</form>
+
+	<a href = "/movies">Home</a>
