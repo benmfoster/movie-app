@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Actor.destroy_all
+# Actor.destroy_all
 # Movie.destroy_all
 
 Actor.create([
@@ -14,8 +14,8 @@ Actor.create([
     {first_name: "Gerald", last_name: "Saviour", known_for: "Jesus Christ Superstar", gender: "F", age: 51, movie_id: 11}
 ])
 
-# Movie.create([
-#     {title: "Lincoln", year: 2012, plot: "Abraham Lincoln frees the slaves.", director: "Steven Spielberg", english: true},
-#     {title: "James Bond", year: 2024, plot: "TBD", director: "TBD", english: true},
-#     {title: "In the Mood for Love", year: 1998, plot: "Rich Chinese people experience the end of the pre-Communist era.", director: "Wong Kar-wai", english: false}
-# ])
+Movie.create([
+    {title: "Lincoln", year: 2012, plot: "Abraham Lincoln frees the slaves.", director: "Steven Spielberg", english: true},
+    {title: "James Bond", year: 2024, plot: "TBD", director: "TBD", english: true},
+    {title: "In the Mood for Love", year: 1998, plot: "Rich Chinese people experience the end of the pre-Communist era.", director: "Wong Kar-wai", english: false}
+])
