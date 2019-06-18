@@ -9,7 +9,7 @@ class Api::MovieController < ApplicationController
     
         def show
             @movie = Movie.find(params[:id])
-            render "show.html.erb"
+            render "show.json.jbuilder"
         end
     
         def create
@@ -21,7 +21,7 @@ class Api::MovieController < ApplicationController
                 )
                 if @movie.save
                     # happy path
-                    render 'create.json.jbuilder'
+                    render 'show.json.jbuilder'
                 else
                     # sad path
                     render json: {errors: @movie.errors.full_messages}, status: :unprocessable_entity
